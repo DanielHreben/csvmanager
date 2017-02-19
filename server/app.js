@@ -1,9 +1,8 @@
 const express = require('express')
-const app = express()
-
-const CSVStream = require('./CSVStream')
+const CSVStream = require('csv-streamify')
 const db = require('./db')
 
+const app = express()
 app.use(express.static('../client'));
 
 app.get('/api/users', (req, res) => {
@@ -14,12 +13,12 @@ app.get('/api/users', (req, res) => {
 
 app.post('/api/users/upload', (req, res) => {
   let rows = []
-  const csv = req.pipe(new CSVStream())
+  const csv = req.pipe(new CSVStream({objectMode: true}))
 
   csv.on('data', chunk => {
-    rows = rows.concat(chunk)
+    rows.push(chunk)
 
-    if (rows.length > 20) {
+    if (rows.length > 50) {
       console.log(rows.length)
       csv.pause()
 
