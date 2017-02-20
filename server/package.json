@@ -4,14 +4,19 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon lib/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bunyan": "^1.8.5",
     "csv-streamify": "^3.0.4",
     "express": "^4.14.1",
-    "nedb-promise": "^2.0.1"
+    "express-history-api-fallback": "^2.1.0",
+    "livr": "^2.0.0",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.24",
+    "require-directory": "^2.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

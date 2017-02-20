@@ -1,0 +1,10 @@
+deploy
+node_modules
+.gitignore
+.git
+
+server/test
+server/node_modules
+
+client/public/static
+client/node_modules
